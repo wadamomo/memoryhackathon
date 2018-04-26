@@ -234,11 +234,8 @@ marquee {
     width: 100%;
     font-size: 2.5em;
     border: 1px solid white;
-    opacity: 0;
-}
-
-.lost {
-    opacity: 1;
+    z-index: -1000;
+    display: none;
 }
 
 /* animations */
