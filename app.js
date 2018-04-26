@@ -49,7 +49,12 @@ function shuffle(array) {
 // shuffles cards when page is refreshed / loads
 document.body.onload = startGame();
 
-
+document.querySelector(".restart").addEventListener("click", function() {
+    playAgain();
+});
+document.getElementById("play-again").addEventListener("click", function() {
+    playAgain();
+});
 // function to start a new play 
 function startGame(){
     // shuffle deck
@@ -61,7 +66,7 @@ function startGame(){
         [].forEach.call(cards, function(item) {
             deck.appendChild(item);
         });
-        cards[i].classList.remove("show", "open", "match", "disabled");
+        cards[i].classList.remove("show", "open", "match", "disabled", "hidden");
     }
     // reset moves
     moves = 0;
@@ -216,19 +221,14 @@ function congratulations(){
         document.getElementById("finalMove").innerHTML = moves;
         document.getElementById("starRating").innerHTML = starRating;
         document.getElementById("totalTime").innerHTML = finalTime;
-<<<<<<< HEAD
         
         // add play again lisener
-        document.getElementById("play-again").addEventListener("click", function() {
-            playAgain();
-        });
-=======
 
         var confettiSettings = { target: 'my-canvas' };
         var confetti = new window.ConfettiGenerator(confettiSettings);
         confetti.render();
         
->>>>>>> 2eed641cdcc90ff5d6cf1bd7f0c67d7f2cf980f0
+        $(".deck").attr("display","none");
         //closeicon on modal
         closeModal();
     };
@@ -244,7 +244,7 @@ function closeModal(){
 }
 
 
-// @desciption for user to play Again 
+// for user to play Again 
 function playAgain(){
     modal.classList.remove("show");
     startGame();
