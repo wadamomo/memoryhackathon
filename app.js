@@ -54,10 +54,6 @@ document.body.onload = startGame();
 function startGame(){
     // shuffle deck
 
-    var confettiSettings = { target: 'my-canvas' };
-    var confetti = new window.ConfettiGenerator(confettiSettings);
-    confetti.render();
-
     cards = shuffle(cards);
     // remove all exisiting classes from each card
     for (var i = 0; i < cards.length; i++){
@@ -225,6 +221,10 @@ function congratulations(){
         document.getElementById("starRating").innerHTML = starRating;
         document.getElementById("totalTime").innerHTML = finalTime;
 
+        var confettiSettings = { target: 'my-canvas' };
+        var confetti = new window.ConfettiGenerator(confettiSettings);
+        confetti.render();
+        
         //closeicon on modal
         closeModal();
     };
