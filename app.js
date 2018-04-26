@@ -53,6 +53,11 @@ document.body.onload = startGame();
 // @description function to start a new play 
 function startGame(){
     // shuffle deck
+
+    var confettiSettings = { target: 'my-canvas' };
+    var confetti = new window.ConfettiGenerator(confettiSettings);
+    confetti.render();
+
     cards = shuffle(cards);
     // remove all exisiting classes from each card
     for (var i = 0; i < cards.length; i++){
