@@ -28,7 +28,7 @@ let matchedCard = document.getElementsByClassName("match");
 var openedCards = [];
 
 
-// @description shuffles cards
+// shuffles cards
 // @param {array}
 // @returns shuffledarray
 function shuffle(array) {
@@ -46,11 +46,16 @@ function shuffle(array) {
 };
 
 
-// @description shuffles cards when page is refreshed / loads
+// shuffles cards when page is refreshed / loads
 document.body.onload = startGame();
 
-
-// @description function to start a new play 
+document.querySelector(".restart").addEventListener("click", function() {
+    playAgain();
+});
+document.getElementById("play-again").addEventListener("click", function() {
+    playAgain();
+});
+// function to start a new play 
 function startGame(){
     // shuffle deck
 
@@ -62,6 +67,7 @@ function startGame(){
             deck.appendChild(item);
         });
         cards[i].classList.remove("show", "open", "match", "disabled");
+        cards[i].childNodes[1].childNodes[0].classList.remove("shown");
     }
     // reset moves
     moves = 0;
@@ -81,7 +87,7 @@ function startGame(){
 }
 
 
-// @description toggles open and show class to display cards
+// toggles open and show class to display cards
 var displayCard = function (){
     this.classList.toggle("open");
     this.classList.toggle("show");
@@ -89,7 +95,7 @@ var displayCard = function (){
 };
 
 
-// @description add opened cards to OpenedCards list and check if cards are match or not
+// add opened cards to OpenedCards list and check if cards are match or not
 function cardOpen() {
 	// setTimeout(() => {this.classList.add("shown")}, 1)
 	setTimeout(() => {this.childNodes[1].childNodes[0].classList.add("shown")}, 1)
@@ -112,7 +118,7 @@ function cardOpen() {
 };
 
 
-// @description when cards match
+// when cards match
 function matched(){
     openedCards[0].classList.add("match", "disabled");
     openedCards[1].classList.add("match", "disabled");
@@ -136,7 +142,7 @@ function unmatched(){
 }
 
 
-// @description disable cards temporarily
+// disable cards temporarily
 function disable(){
     Array.prototype.filter.call(cards, function(card){
         card.classList.add('disabled');
@@ -144,7 +150,7 @@ function disable(){
 }
 
 
-// @description enable cards and disable matched cards
+// enable cards and disable matched cards
 function enable(){
     Array.prototype.filter.call(cards, function(card){
         card.classList.remove('disabled');
@@ -155,7 +161,7 @@ function enable(){
 }
 
 
-// @description count player's moves
+// count player's moves
 function moveCounter(){
     moves++;
     counter.innerHTML = moves;
@@ -174,17 +180,14 @@ function moveCounter(){
             }
         }
     }
-    else if (moves > 13){
-        for( i= 0; i < 3; i++){
-            if(i > 0){
-                stars[i].style.visibility = "collapse";
-            }
-        }
+    else if (moves > 1){
+        console.log(document.querySelector('#loser').childNodes[1]);
+        document.querySelector('#loser').childNodes[1].classList.add("lost");
     }
 }
 
 
-// @description game timer
+// game timer
 var second = 0, minute = 0; hour = 0;
 var timer = document.querySelector(".timer");
 var interval;
@@ -204,10 +207,9 @@ function startTimer(){
 }
 
 
-// @description congratulations when all cards match, show modal and moves, time and rating
-function congratulations(){   
-
-    if (matchedCard.length == 16){
+// congratulations when all cards match, show modal and moves, time and rating
+function congratulations(){
+    if (matchedCard.length == 32){
         clearInterval(interval);
         finalTime = timer.innerHTML;
 
@@ -221,6 +223,8 @@ function congratulations(){
         document.getElementById("finalMove").innerHTML = moves;
         document.getElementById("starRating").innerHTML = starRating;
         document.getElementById("totalTime").innerHTML = finalTime;
+        
+        // add play again lisener
 
         document.getElementsByClassName('popup')[0].style.display = 'block';
         document.getElementsByClassName('deck')[0].style.display = 'none';
@@ -229,13 +233,14 @@ function congratulations(){
         var confetti = new window.ConfettiGenerator(confettiSettings);
         confetti.render();
         
+        $(".deck").attr("display","none");
         //closeicon on modal
         closeModal();
     };
 }
 
 
-// @description close icon on modal
+// close icon on modal
 function closeModal(){
     closeicon.addEventListener("click", function(e){
         modal.classList.remove("show");
@@ -244,7 +249,7 @@ function closeModal(){
 }
 
 
-// @desciption for user to play Again 
+// for user to play Again 
 function playAgain(){
     modal.classList.remove("show");
     startGame();

@@ -2,6 +2,15 @@ html {
 	box-sizing: border-box;
 }
 
+h1 {
+    font-size: 60px;
+    margin-bottom: 1px;
+}
+
+.score-panel {
+    font-size: 42px;
+}
+
 html,
 body {
 	width: 100%;
@@ -136,12 +145,10 @@ img {
 }
 
 
-* Styles for congratulations modal
-*/
-
+* S
 
 .overlay {
-   position: fixed;
+   position: absolute;
    top: 0;
    bottom: 0;
    left: 0;
@@ -158,6 +165,7 @@ img {
 }
  
 .popup {
+   /* display: none; */
    margin: 70px auto;
    padding: 20px;
    background: #ffffff;
@@ -216,6 +224,21 @@ img {
    font-family: 'Gloria Hallelujah', cursive;
    color: #ffffff;
    border-radius: 5px;
+}
+
+marquee {
+    position: absolute;
+    height: 1000px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: 2.5em;
+    border: 1px solid white;
+    opacity: 0;
+}
+
+.lost {
+    opacity: 1;
 }
 
 /* animations */
