@@ -166,7 +166,7 @@ img {
    position: relative;
    transition: all 5s ease-in-out;
    font-family: 'Gloria Hallelujah', cursive;
-   /* display: none; */
+   display: none;
 }
  
 .popup h2 {

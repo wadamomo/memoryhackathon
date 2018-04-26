@@ -205,7 +205,8 @@ function startTimer(){
 
 
 // @description congratulations when all cards match, show modal and moves, time and rating
-function congratulations(){
+function congratulations(){   
+
     if (matchedCard.length == 16){
         clearInterval(interval);
         finalTime = timer.innerHTML;
@@ -221,6 +222,9 @@ function congratulations(){
         document.getElementById("starRating").innerHTML = starRating;
         document.getElementById("totalTime").innerHTML = finalTime;
 
+        document.getElementsByClassName('popup')[0].style.display = 'block';
+        document.getElementsByClassName('deck')[0].style.display = 'none';
+        document.getElementsByClassName('score-panel')[0].style.display = 'none';
         var confettiSettings = { target: 'my-canvas' };
         var confetti = new window.ConfettiGenerator(confettiSettings);
         confetti.render();
