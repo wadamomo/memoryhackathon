@@ -3,11 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title>Test</title>
+    <script src="confetti.js"></script>
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet" href="stylesheet.css">
   </head>
   <body>
-    <div class="container">
+      <canvas id="my-canvas"></canvas>
+
+      <div class="container">
       <header>
         <h1>Ahhh Memories</h1>
       </header>
@@ -138,6 +141,12 @@
       </div>
 
     </div>
+
     <script src="app.js"></script>
+    <script>
+        var confettiSettings = { target: 'my-canvas' };
+          var confetti = new window.ConfettiGenerator(confettiSettings);
+          confetti.render();
+      </script>
   </body>
 </html>
