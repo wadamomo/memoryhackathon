@@ -54,10 +54,6 @@ document.body.onload = startGame();
 function startGame(){
     // shuffle deck
 
-    var confettiSettings = { target: 'my-canvas' };
-    var confetti = new window.ConfettiGenerator(confettiSettings);
-    confetti.render();
-
     cards = shuffle(cards);
     // remove all exisiting classes from each card
     for (var i = 0; i < cards.length; i++){
@@ -220,11 +216,19 @@ function congratulations(){
         document.getElementById("finalMove").innerHTML = moves;
         document.getElementById("starRating").innerHTML = starRating;
         document.getElementById("totalTime").innerHTML = finalTime;
+<<<<<<< HEAD
         
         // add play again lisener
         document.getElementById("play-again").addEventListener("click", function() {
             playAgain();
         });
+=======
+
+        var confettiSettings = { target: 'my-canvas' };
+        var confetti = new window.ConfettiGenerator(confettiSettings);
+        confetti.render();
+        
+>>>>>>> 2eed641cdcc90ff5d6cf1bd7f0c67d7f2cf980f0
         //closeicon on modal
         closeModal();
     };
