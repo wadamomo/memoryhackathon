@@ -65,7 +65,7 @@ body {
 
 .deck .card.match {
 	cursor: default;
-	background: #E5F720;
+	background: rgb(79, 32, 247);
 	font-size: 33px;
 	animation-name: rubberBand;
 	-webkit-backface-visibility: visible !important;
@@ -78,7 +78,7 @@ body {
 	-webkit-backface-visibility: visible !important;
 	backface-visibility: visible !important;
 	animation-duration: .75s;
-	background: #e2043b;
+	background: #04e27a;
 }
 
 .deck .card.disabled {
