@@ -90,13 +90,21 @@ var displayCard = function (){
 
 // @description add opened cards to OpenedCards list and check if cards are match or not
 function cardOpen() {
+	// setTimeout(() => {this.classList.add("shown")}, 1)
+	setTimeout(() => {this.childNodes[1].childNodes[0].classList.add("shown")}, 1)
     openedCards.push(this);
     var len = openedCards.length;
     if(len === 2){
         moveCounter();
         if(openedCards[0].type === openedCards[1].type){
-            matched();
+			matched();
         } else {
+            setTimeout(() => {openedCards[0].childNodes[1].childNodes[0].classList.add("hidden")}, 1000)
+            setTimeout(() => {openedCards[1].childNodes[1].childNodes[0].classList.add("hidden")}, 1000)
+            setTimeout(() => {openedCards[0].childNodes[1].childNodes[0].classList.remove("shown")}, 1000)
+            setTimeout(() => {openedCards[1].childNodes[1].childNodes[0].classList.remove("shown")}, 1000)
+            setTimeout(() => {openedCards[0].childNodes[1].childNodes[0].classList.remove("hidden")}, 1000)
+            setTimeout(() => {openedCards[1].childNodes[1].childNodes[0].classList.remove("hidden")}, 1000)
             unmatched();
         }
     }
@@ -161,7 +169,7 @@ function moveCounter(){
     if (moves > 8 && moves < 12){
         for( i= 0; i < 3; i++){
             if(i > 1){
-                stars[i].style.visibility = "collapse";
+                // stars[i].style.visibility = "collapse";
             }
         }
     }
