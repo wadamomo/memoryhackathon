@@ -66,7 +66,8 @@ function startGame(){
         [].forEach.call(cards, function(item) {
             deck.appendChild(item);
         });
-        cards[i].classList.remove("show", "open", "match", "disabled", "hidden");
+        cards[i].classList.remove("show", "open", "match", "disabled");
+        cards[i].childNodes[1].childNodes[0].classList.remove("shown");
     }
     // reset moves
     moves = 0;
@@ -179,8 +180,9 @@ function moveCounter(){
             }
         }
     }
-    else if (moves > 32){
-        console.log('YOU LOST!!! :( :( :(')
+    else if (moves > 1){
+        console.log(document.querySelector('#loser').childNodes[1]);
+        document.querySelector('#loser').childNodes[1].classList.add("lost");
     }
 }
 
