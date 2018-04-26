@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Ah Memories",
+  "version": "1.0",
+  "description": "Ah Memories",
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["app.js"]
+    }
+  ],
+  "browser_action": {
+    "default_title": "Ah Memories....."
+  },
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "icons": {
+    "16": "./photobluecrop.png",
+    "48": "./photobluecrop.png",
+    "128": "./photobluecrop.png"
+  }
+}

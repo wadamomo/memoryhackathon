@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="stylesheet.css">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Ahhh Memories</h1>
+      </header>
+
+      <section class="score-panel">
+        <span class="moves">0</span>
+        <div class="timer"></div>
+        <div class="restart">
+          <!-- add a listener for restart -->
+          <i class="fa fa-repeat"></i>
+        </div>
+      </section>
+
+      <ul class="deck" id="card-deck">
+        <li class="card" type="1">
+          <i class="1"><img src="/assets/1.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="2">
+          <i class="2"><img src="/assets/2.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="3">
+          <i class="3"><img src="/assets/3.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="4">
+          <i class="4"><img src="/assets/4.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="5">
+          <i class="5"><img src="/assets/5.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="6">
+          <i class="6"><img src="/assets/6.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="7">
+          <i class="7"><img src="/assets/7.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="8">
+          <i class="8"><img src="/assets/8.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="9">
+          <i class="9"><img src="/assets/9.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="10">
+          <i class="10"><img src="/assets/10.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="11">
+          <i class="11"><img src="/assets/11.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="12">
+          <i class="12"><img src="/assets/12.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="13">
+          <i class="13"><img src="/assets/13.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="14">
+          <i class="14"><img src="/assets/14.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="15">
+          <i class="15"><img src="/assets/15.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="16">
+          <i class="16"><img src="/assets/16.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="1">
+          <i class="1"><img src="/assets/1.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="2">
+          <i class="2"><img src="/assets/2.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="3">
+          <i class="3"><img src="/assets/3.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="4">
+          <i class="4"><img src="/assets/4.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="5">
+          <i class="5"><img src="/assets/5.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="6">
+          <i class="6"><img src="/assets/6.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="7">
+          <i class="7"><img src="/assets/7.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="8">
+          <i class="8"><img src="/assets/8.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="9">
+          <i class="9"><img src="/assets/9.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="10">
+          <i class="10"><img src="/assets/10.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="11">
+          <i class="11"><img src="/assets/11.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="12">
+          <i class="12"><img src="/assets/12.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="13">
+          <i class="13"><img src="/assets/13.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="14">
+          <i class="14"><img src="/assets/14.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="15">
+          <i class="15"><img src="/assets/15.png" class="hidden" width="125" height="125"></i>
+        </li>
+        <li class="card" type="16">
+          <i class="16"><img src="/assets/16.png" class="hidden" width="125" height="125"></i>
+        </li>
+      </ul>
+
+      <div id="popup1" class="overlay">
+        <div class="popup">
+          <h2>Congratulations 🎉🎉🎉</h2>
+          <a href="#" class="close">x</a>
+          <div class="content-1">
+              Congratulations you're good at remembering things or whatever!!!!!!</div>
+          <div class="content-2">
+            <p>You made <span id="finalMove"></span> moves</p>
+            <p>in <span id="totalTime"></span></p>
+          </div>
+          <button id="play-again">
+            <!-- add a listener to connect to play again in extension -->
+            Play again ?
+          </button>
+        </div>
+      </div>
+
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
