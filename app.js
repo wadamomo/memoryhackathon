@@ -183,6 +183,7 @@ function moveCounter(){
     else if (moves > 1){
         console.log(document.querySelector('#loser').childNodes[1]);
         document.querySelector('#loser').childNodes[1].classList.add("lost");
+        document.querySelector('#loser').childNodes[1].classList.remove(".notlost");
     }
 }
 
