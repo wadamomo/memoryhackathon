@@ -59,6 +59,11 @@ document.getElementById("play-again").addEventListener("click", function() {
 function startGame(){
     // shuffle deck
 
+    document.getElementsByClassName('popup')[0].style.display = 'none';
+    document.getElementsByClassName('deck')[0].style.display = 'block';
+    document.getElementsByClassName('score-panel')[0].style.display = 'block';
+    document.getElementById("my-canvas").style.display = 'none';
+
     cards = shuffle(cards);
     // remove all exisiting classes from each card
     for (var i = 0; i < cards.length; i++){
@@ -209,29 +214,34 @@ function startTimer(){
     },1000);
 }
 
+let hasRenderedConfetti = false;
 
 // congratulations when all cards match, show modal and moves, time and rating
 function congratulations(){
-    if (matchedCard.length == 32){
+    if (matchedCard.length == 2){
         clearInterval(interval);
         finalTime = timer.innerHTML;
 
         // show congratulations modal
         modal.classList.add("show");
 
-        // declare star rating variable
-        var starRating = document.querySelector(".stars").innerHTML;
-
         //showing move, rating, time on modal
         document.getElementById("finalMove").innerHTML = moves;
-        document.getElementById("starRating").innerHTML = starRating;
         document.getElementById("totalTime").innerHTML = finalTime;
         
         // add play again lisener
 
-        var confettiSettings = { target: 'my-canvas' };
-        var confetti = new window.ConfettiGenerator(confettiSettings);
-        confetti.render();
+        document.getElementsByClassName('popup')[0].style.display = 'block';
+        document.getElementsByClassName('deck')[0].style.display = 'none';
+        document.getElementsByClassName('score-panel')[0].style.display = 'none';
+        document.getElementById("my-canvas").style.display = 'block';
+
+        if (!hasRenderedConfetti) {
+            var confettiSettings = { target: 'my-canvas' };
+            var confetti = new window.ConfettiGenerator(confettiSettings);
+            confetti.render();    
+            hasRenderedConfetti = true;
+        }
         
         $(".deck").attr("display","none");
         //closeicon on modal
