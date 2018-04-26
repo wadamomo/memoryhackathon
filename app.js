@@ -69,6 +69,9 @@ function startGame(){
         cards[i].classList.remove("show", "open", "match", "disabled");
         cards[i].childNodes[1].childNodes[0].classList.remove("shown");
     }
+
+    document.querySelector('#marq').style.display = "none";
+
     // reset moves
     moves = 0;
     counter.innerHTML = moves;
@@ -182,8 +185,7 @@ function moveCounter(){
     }
     else if (moves > 1){
         console.log(document.querySelector('#loser').childNodes[1]);
-        document.querySelector('#loser').childNodes[1].classList.add("lost");
-        document.querySelector('#loser').childNodes[1].classList.remove(".notlost");
+        document.querySelector('#marq').style.display = "inline";
     }
 }
 

@@ -226,16 +226,19 @@ img {
    border-radius: 5px;
 }
 
+#marq {
+    display: none;
+    margin-top: 290px;
+}
+
 marquee {
     position: absolute;
     height: 1000px;
     top: 0;
     left: 0;
     width: 100%;
-    font-size: 2.5em;
     border: 1px solid white;
-    z-index: -1000;
-    display: none;
+    font-size: 2.5em;
 }
 
 /* animations */
